@@ -18,6 +18,8 @@
    
    <preference name="target-device" value="universal" />
    <access origin="*" />
+   
+   <content src="index.html" />
 
    
    <!-- Icons -->

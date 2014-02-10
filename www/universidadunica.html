@@ -1,0 +1,170 @@
+<!DOCTYPE html> 
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>jQuery Mobile: Theme Download</title>
+		<link rel="stylesheet" href="themes/fnatheme.min.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.0.min.css" />
+        
+        <link rel='stylesheet' href='slides/css/vendor/fontello.css'>
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        
+		<script src="themes/jquery-1.10.2.min.js"></script>
+		<script src="themes/jquery.mobile-1.4.0.min.js"></script>
+        
+        <script language="JavaScript" type="text/javascript" src="js/xpath.js"></script>
+		<script language="JavaScript" type="text/javascript" src="js/SpryData.js"></script>
+        <script language="javascript" type="text/javascript" src="js/funciones.js"></script>
+        <script language="JavaScript" type="text/javascript">
+
+var idUniU = localStorage.getItem("project_idUniU");
+
+var ds1 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml", "feed/entry/content/m:properties"+idUniU+"", {sortOnLoad: "d:ciudadomunicipio", sortOrderOnLoad: "ascending", distinctOnLoad: true, distinctFieldsOnLoad: ['d:ciudadomunicipio']});
+
+<!--http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml o js/bdfnaeducacion.xml-->
+
+var ds2 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml", "feed/entry/content/m:properties"+idUniU+"", {sortOnLoad: "d:programaacademico", sortOrderOnLoad: "ascending", distinctOnLoad: true, distinctFieldsOnLoad: ['d:programaacademico']});
+
+</script>
+         <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,100,200,700,500' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+        
+        <link rel="stylesheet" href="themes/fontello.css" />
+     
+<script type="text/javascript">
+$(document).ready(function() {
+    setTimeout(function() {
+        $(".cargaocultar").fadeOut(1100);
+    },1500);
+});
+</script>
+ 
+	</head>
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header" data-position="fixed">
+    <a href="#nav-panel" class="ui-nodisc-icon ui-btn ui-icon-bars ui-btn-icon-notext" style=" background:#36A1CE; border:none;">Menu</a>
+		<h1>FNA V&E </h1>
+    <a href="convenios.html" data-ajax="false" class="ui-btn ui-nodisc-icon ui-icon-carat-l ui-btn-icon-left ui-btn-c" style="background:#36A1CE; border:none; color:#FFF; font-family:Arial, Helvetica, sans-serif">Convenios</a>
+	</div>
+    
+	<div data-role="content">	
+          
+      	<div spry:region="ds1">
+                 
+                <div spry:state="loading" align="center">
+                  	<img src="themes/images/loading.gif">
+                	<h3 class="fuente1">Cargando Universidad...</h3>
+                </div>
+               
+                
+                 <div spry:state="error" align="center">
+                 <h3 align="center" class="fuente1">
+                 <div class="cargaocultar" style="height:1000px"> </div> 
+                 No se obtuvieron datos, comprueba tu conexión a internet.</h3>
+                 </div>
+                 
+                 
+                
+                <div spry:state="ready">                
+                                <ul class="pricing-table radius bluegreen">
+                                
+                                    <li class="title">
+                                    <img src="http://www.fna.gov.co/wps/wcm/connect/9041049c-4cdc-4483-8f48-64a6c0808175/ASCOFAME.gif?MOD=AJPERES&CACHEID=9041049c-4cdc-4483-8f48-64a6c0808175" alt="{logo}" width="120" height="120">
+                                    </li>
+                                    																								 							<li class="price" style="word-wrap: break-word"><strong>{d:universidad}</strong><br /></li>                        	
+                                    <li class="description">{d:descripcion}</p> 																 								<strong><span class="bg-dark">{d:convenio}</span></strong>
+                                    </li>
+                                 
+                                </ul>            
+                </div>
+      	</div> 
+      
+     	 <div spry:region="ds2"> 
+         	<div spry:state="ready"> 
+				<div class="panel blue">
+                <h2 class="fuente1">Programas Académicos</h2>
+                        <div spry:repeat="ds2"><i class="icon-graduation-cap">	 									 						{d:programaacademico}
+                        </i></div>	
+                        <br />
+             </div>
+				</div>
+		</div>
+        
+        
+        <div spry:region="ds1">
+                <div class="panel green">
+                <h3>Ciudades Sede</h3>
+                		<div spry:repeat="ds1">
+						<i class="icon-map"> {d:ciudadmunicipio}</i>
+                        </div>
+                </div>
+                </div>
+                
+                <div spry:region="ds1">
+                <div class="panel grey">
+                    <p class="no-margin">
+                    	<h3>Web Site</h3>
+                    </p>			           																								 					<p>Para más información ingresa a:</p>                            																																																																																												 					<p>
+                    <h2 class="fuente1" style="word-wrap: break-word"><a href="http://{d:paginaweb}" target="_blank">{d:paginaweb}</a></h2></p> 
+                    
+                    Para mayor información comuníquese con la línea de atención del FNA en Bogotá  al 307 70 70 y a nivel nacional a la línea 01 8000 52 7070       	
+			    </div>
+                </div>
+				
+   
+	</div>
+	
+    
+    <div data-role="panel" data-display="reval" data-theme="b" id="nav-panel">
+    
+    <div id="sidemenu">
+	        		<div id="author-profile">
+	        			<div class="author-profile-photo">
+	        				<img src="assets/authorProfile.jpg" alt="">
+	        			</div>
+	        			<div class="author-profile-content">
+	        				<p class="title">FNA</p>
+	        				<p class="subtitle">Vivienda y Educación</p>
+	        			</div>
+	        		</div>
+	 </div></br>
+     
+        <ul data-role="listview">        
+          <li><a href="index.html" data-ajax="false"><n class="fuente1">Inicio</n></a></li>
+          <li><a href="educacion.html" data-ajax="false"><n class="fuente1">Educación</n></a></li>
+          <li><a href="vivienda.html" data-ajax="false"><n class="fuente1">Vivienda</n></a></li>
+          <li><a href="contacto.html" data-ajax="false"><n class="fuente1">Contacto</n></a></li>
+          <li><a href="sobre.html" data-ajax="false"><n class="fuente1">Sobre FNA V&E </n></a></li>
+          <li><a href="cerrar.html" data-transition="pop" data-ajax="false" onclick="exitFromApp"><n class="fuente1">Salir</n></a></li>
+        </ul></br>
+        
+        <p class"social" align="center">
+        
+    <script>
+    function openLinkInBrowser(url){
+    if (navigator!=undefined && navigator.app!=undefined && navigator.app.loadUrl !=undefined) {
+        navigator.app.loadUrl( url,  { openExternal: true });  
+    } else {
+        window.open(url, "_system");
+    }
+    
+}
+    </script>
+           <a class"afuera" onclick="openLinkInBrowser('https://twitter.com/intent/tweet?text=@FNAahorro')"><img src="themes/images/icontwet.png" width="50" height="50" /></a>
+           <a onclick="openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u=http://fna.gov.co')"><img src="themes/images/iconface.png" width="50" height="50" /></a>
+           <a onclick="openLinkInBrowser('http://www.youtube.com/user/fnaahorro')"><img src="themes/images/iconyout.png" width="50" height="50" /></a>
+        </p>
+    </div><!-- /panel --> 
+</div>
+
+
+
+
+</body>
+
+</html>

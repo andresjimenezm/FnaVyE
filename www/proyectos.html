@@ -1,0 +1,240 @@
+<!DOCTYPE html> 
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>jQuery Mobile: Theme Download</title>
+		<link rel="stylesheet" href="themes/fnatheme.min.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.0.min.css" />
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        
+		<script src="themes/jquery-1.10.2.min.js"></script>
+		<script src="themes/jquery.mobile-1.4.0.min.js"></script>
+        
+        <script language="JavaScript" type="text/javascript" src="js/xpath.js"></script>
+		<script language="JavaScript" type="text/javascript" src="js/SpryData.js"></script>
+		<script language="javascript" type="text/javascript" src="js/funciones.js"></script>
+		<script language="JavaScript" type="text/javascript">
+        <!--
+        
+        var idCV = localStorage.getItem("project_idCV");
+       <!--alert(idCV);-->
+        
+        var idTV = localStorage.getItem("project_idTV");
+        <!--alert(idTV);-->
+        
+        var idRV = localStorage.getItem("project_idRV");
+        <!--alert(idRV);-->
+        
+        
+        if(idTV == null) {
+          var idTV = ""
+        }
+        if(idRV == null) {
+          var idRV = ""
+        }
+        
+        var ds1 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaviviendafinal?$format=xml", "feed/entry/content/m:properties[d:ciudad = '"+idCV+"']"+idTV+""+idRV+"", {sortOrderOnLoad: "descending"});
+		
+		var ds2 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaviviendafinal?$format=xml", "feed/entry/content/m:properties[d:ciudad = '"+idCV+"']");
+ <!--http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaviviendafinal?$format=xml o js/bdfnaviviendafinal.xml-->
+ 
+        console.log(ds1)
+        
+        
+        var APARTAMENTO = "[d:tipode_inmueble_ofrecido = 'APARTAMENTO']";
+        var CASA = "[d:tipode_inmueble_ofrecido = 'CASA']";
+        var LOTE = "[d:tipode_inmueble_ofrecido = 'LOTE']";
+        var tipo = idTV;
+        
+        var RUNO = "[d:preciodesde &lt;= 80000000]";
+        var RDOS = "[d:preciodesde &gt;= 80000000][d:preciodesde &lt;= 130000000]";
+        var RTRES = "[d:preciodesde &gt;= 130000000]";
+        var rango = idRV;
+        
+		function displayResult()
+		{	
+			if (tipo == '') {
+			  document.getElementById('todosT').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
+			} 
+			if (tipo == APARTAMENTO) {
+			  document.getElementById('apartamento').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
+			} 
+			if (tipo == CASA) {
+			  document.getElementById('casa').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
+			} 
+			if (tipo == LOTE) {
+			  document.getElementById('lote').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
+			} 
+			
+			if (rango== '') {
+			  document.getElementById('todosR').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
+			} 
+			if (rango == "[d:preciodesde <= 80000000]") {
+			  document.getElementById('rangoUNO').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
+			} 
+			if (rango == "[d:preciodesde >= 80000000][d:preciodesde <= 130000000]") {
+			  document.getElementById('rangoDOS').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
+			} 
+			if (rango == "[d:preciodesde >= 130000000]") {
+			  document.getElementById('rangoTRES').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
+			} 			
+		}
+		
+
+		
+        
+        //-->
+        </script>
+        
+         <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,100,200,700,500' rel='stylesheet' type='text/css'>
+         
+         <script type="text/javascript">
+$(document).ready(function() {
+    setTimeout(function() {
+        $(".cargaocultar").fadeOut(1100);
+    },1500);
+});
+</script>
+         
+
+	</head>
+<body onload="displayResult()"> 
+
+<div data-role="page" id="page">
+	<div data-role="header" data-position="fixed">
+    <a href="#nav-panel" class="ui-nodisc-icon ui-btn ui-icon-bars ui-btn-icon-notext" style=" background:#36A1CE; border:none;">Menu</a>
+		<h4>FNA V&E </h4>
+    <a href="vivienda.html" data-ajax="false" class="ui-btn ui-nodisc-icon ui-icon-carat-l ui-btn-icon-left ui-btn-c" style="background:#36A1CE; border:none; color:#FFF">Ciudades</a>
+	</div>
+    
+	<div data-role="content">	
+    
+    
+   <h2 class="fuente1">Proyectos de  Vivienda</h2>
+
+        
+<div spry:region="ds2">  
+	<div spry:state="loading" align="center">
+                   <img src="themes/images/loading.gif">
+                   	<h3 class="fuente1">Cargando Proyectos...</h3>
+    </div>
+    
+    
+	<div spry:state="error" align="center"> 
+	    <div class="cargaocultar" style="height:1000px"> </div>
+                <h3 class="fuente1">No se obtuvieron datos, comprueba tu conexión a internet.</h3>
+	</div>
+ 	
+<div spry:state="ready">
+    <h4 class="fuente1">Ciudad Seleccionada</h4>
+    <a href="vivienda.html" style="text-transform:uppercase" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-search" data-ajax="false">{d:ciudad}</a>
+            			
+<h4 class="fuente1">Tipo de Inmueble</h4>
+
+       
+        <a id="todosT" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter=""  onclick="mostrarProyectoViviendaTipo(this);return false;">TODOS</a>
+        
+        <a id="apartamento" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter="[d:tipode_inmueble_ofrecido = 'APARTAMENTO']"  onclick="mostrarProyectoViviendaTipo(this);return false;">APARTAMENTO</a>
+        
+        <a id="casa" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter="[d:tipode_inmueble_ofrecido = 'CASA']"  onclick="mostrarProyectoViviendaTipo(this);return false;">CASA</a>
+        
+        <a id="lote" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter="[d:tipode_inmueble_ofrecido = 'LOTE']"  onclick="mostrarProyectoViviendaTipo(this);return false;">LOTE</a>
+
+
+<h4 class="fuente1">Rango de Precios</h4>
+
+        <a id="todosR" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter=""  onclick="mostrarProyectoViviendaRango(this);return false;">TODOS</a>
+        
+        <a id="rangoUNO" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter="[d:preciodesde &lt;= 80000000]"  onclick="mostrarProyectoViviendaRango(this);return false;">De $0 a $80.000.000</a>
+        
+        <a id="rangoDOS" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter="[d:preciodesde &gt;= 80000000][d:preciodesde &lt;= 130000000]"  onclick="mostrarProyectoViviendaRango(this);return false;">De $80.000.000 a $130.000.000</a>
+        
+        <a id="rangoTRES" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter="[d:preciodesde &gt;= 130000000]"  onclick="mostrarProyectoViviendaRango(this);return false;">De $130.000.000 a Más</a>
+</div>        
+</div>
+        
+
+ <br />
+<div spry:region="ds1">
+				
+            <div spry:state="loading" align="center"> </div>
+             <div spry:state="error" align="center"> </div>
+             
+             <div spry:state="ready">
+		  <a spry:repeat="ds1" href="#" onclick="mostrarProyectoVivienda('{d:RowKey}', '{d:latitud}', '{d:longitud}');return false;">
+		  <ul class="pricing-table radius green">
+							<li class="bullet-item selecciongris">
+                            <h1 class="fuente1">{d:nombreproyecto}</h1>                           
+							<img src="http://www.andresjimenezm.com/fna/img/tumbnails/3vivtumb.jpg" width="130" height="100" alt="{link1}"/>
+                            <h2 class="fuente1">{d:tipode_inmueble_ofrecido}</h2>
+							<h3 class="fuente1">Desde <strong>$ {d:preciodesde}</strong></h3>
+                            <h3 class="fuente1">{d:ciudad} - {d:departamento}</h3>
+                            </li>
+						</ul></a>
+              
+
+                     <h4><ul  class="panel grey">
+  					<blockquote>
+                    <li class="bullet-item"><h4 class="fuente1" align="center" style="color:#333">No se encontraron más resultados con estas características. Prueba seleccionando otro "Rango de Precios" y otro "Tipo de Inmueble"</h4></li>				 					</blockquote>
+                    </ul></h4>
+</div> 
+</div>
+   
+   
+   
+    
+			
+	</div>
+	
+    
+    
+    
+    <div data-role="panel" data-display="reval" data-theme="b" id="nav-panel">
+    
+    <div id="sidemenu">
+	        		<div id="author-profile">
+	        			<div class="author-profile-photo">
+	        				<img src="assets/authorProfile.jpg" alt="">
+	        			</div>
+	        			<div class="author-profile-content">
+	        				<p class="title">FNA</p>
+	        				<p class="subtitle">Vivienda y Educación</p>
+	        			</div>
+	        		</div>
+	 </div></br>
+     
+        <ul data-role="listview">        
+          <li><a href="index.html" data-ajax="false"><n class="fuente1">Inicio</n></a></li>
+          <li><a href="educacion.html" data-ajax="false"><n class="fuente1">Educación</n></a></li>
+          <li><a href="vivienda.html" data-ajax="false"><n class="fuente1">Vivienda</n></a></li>
+          <li><a href="contacto.html" data-ajax="false"><n class="fuente1">Contacto</n></a></li>
+          <li><a href="sobre.html" data-ajax="false"><n class="fuente1">Sobre FNA V&E </n></a></li>
+          <li><a href="cerrar.html" data-transition="pop" data-ajax="false" onclick="exitFromApp"><n class="fuente1">Salir</n></a></li>        
+        </ul></br>
+        
+        <p class"social" align="center">
+        
+    <script>
+    function openLinkInBrowser(url){
+    if (navigator!=undefined && navigator.app!=undefined && navigator.app.loadUrl !=undefined) {
+        navigator.app.loadUrl( url,  { openExternal: true });  
+    } else {
+        window.open(url, "_system");
+    }
+    
+}
+    </script>
+           <a class"afuera" onclick="openLinkInBrowser('https://twitter.com/intent/tweet?text=@FNAahorro')"><img src="themes/images/icontwet.png" width="50" height="50" /></a>
+           <a onclick="openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u=http://fna.gov.co')"><img src="themes/images/iconface.png" width="50" height="50" /></a>
+           <a onclick="openLinkInBrowser('http://www.youtube.com/user/fnaahorro')"><img src="themes/images/iconyout.png" width="50" height="50" /></a>
+        </p>
+    </div><!-- /panel -->
+</div>
+
+
+
+</body>
+</html>

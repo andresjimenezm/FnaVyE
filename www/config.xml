@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.andresjimenezm.FNAV&E"
+<widget id="com.andresjimenezm.fnaEV"
     version="1.0.0"
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:gap="http://phonegap.com/ns/1.0" >
@@ -17,7 +17,7 @@
     </author>
 
 
-    <feature name="http://api.phonegap.com/1.0/device" />
+     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
     <feature name="http://api.phonegap.com/1.0/notification"/>
     <feature name="http://api.phonegap.com/1.0/network"/>
@@ -44,7 +44,7 @@
 
 
 
-     <!-- <preference name="orientation" value="portrait" /> -->
+    <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
     <preference name="prerendered-icon" value="true" />
     <preference name="stay-in-webview" value="false" />

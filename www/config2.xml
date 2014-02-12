@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.andresjimenezm.FNAV&E"
+        version   = "1.0.0">
+   <name>FNA V&E</name>
+   <description>Encuentra convenios y beneficios en vivienda y educacion con el Fondo Nacional del Ahorro</description>
+   <author href="http://www.andresjimenezm.com" email="contacto@andresjimenezm.com">Andres Jimenez M.</author>
+   <feature name="http://api.phonegap.com/1.0/network"/>
+   <feature name="http://api.phonegap.com/1.0/media"/>
+   <feature name="http://api.phonegap.com/1.0/file"/>
+   <feature name="http://api.phonegap.com/1.0/notification"/>
+   
+   	<feature name="NetworkStatus">
+      <param name="android-package" value="org.apache.cordova.NetworkManager"/>
+      <param name="ios-package" value="CDVConnection"/>
+	</feature>
+   
+   <preference name="target-device" value="universal" />
+   <access origin="*" />
+   
+   <content src="index.html" />
+
+   
+   <!-- Icons -->
+   <icon src="img/icoFNA.png" width="64" height="64" gap:role="default" />
+   <icon src="img/icoFNA.png" width="72" height="72" gap:platform="android" gap:density="hdpi" />
+   <icon src="img/icoFNA.png" width="96" height="96" gap:platform="android" gap:density="xhdpi" />
+   <icon src="img/icoFNA.png" width="72" height="72" gap:platform="ios" />
+   <!-- Splash Screens -->
+   <gap:splash gap:density="ldpi" gap:platform="android" src="res/screen/android/screen-ldpi-portrait.png" />
+    <gap:splash gap:density="mdpi" gap:platform="android" src="res/screen/android/screen-mdpi-portrait.png" />
+    <gap:splash gap:density="hdpi" gap:platform="android" src="res/screen/android/screen-hdpi-portrait.png" />
+    <gap:splash gap:density="xhdpi" gap:platform="android" src="res/screen/android/screen-xhdpi-portrait.png" />
+    <gap:splash gap:platform="blackberry" src="res/screen/blackberry/screen-225.png" />
+    <gap:splash gap:platform="ios" height="480" src="res/screen/ios/screen-iphone-portrait.png" width="320" />
+    <gap:splash gap:platform="ios" height="960" src="res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
+    <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
+    <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
+    <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
+</widget>

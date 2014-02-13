@@ -45,7 +45,7 @@
         
         
         var APARTAMENTO = "[d:tipode_inmueble_ofrecido = 'APARTAMENTO']";
-        var CASA = "[d:tipode_inmueble_ofrecido = 'CASA']";
+        var Casa = "[d:tipode_inmueble_ofrecido = 'Casa']";
         var LOTE = "[d:tipode_inmueble_ofrecido = 'LOTE']";
         var tipo = idTV;
         
@@ -62,8 +62,8 @@
 			if (tipo == APARTAMENTO) {
 			  document.getElementById('apartamento').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
 			} 
-			if (tipo == CASA) {
-			  document.getElementById('casa').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
+			if (tipo == Casa) {
+			  document.getElementById('Casa').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
 			} 
 			if (tipo == LOTE) {
 			  document.getElementById('lote').className = "ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-check";
@@ -139,7 +139,7 @@ $(document).ready(function() {
         
         <a id="apartamento" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter="[d:tipode_inmueble_ofrecido = 'APARTAMENTO']"  onclick="mostrarProyectoViviendaTipo(this);return false;">APARTAMENTO</a>
         
-        <a id="casa" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter="[d:tipode_inmueble_ofrecido = 'CASA']"  onclick="mostrarProyectoViviendaTipo(this);return false;">CASA</a>
+        <a id="Casa" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter="[d:tipode_inmueble_ofrecido = 'Casa']"  onclick="mostrarProyectoViviendaTipo(this);return false;">CASA</a>
         
         <a id="lote" href="" class="ui-btn ui-icon-carat-r ui-btn-icon-right ui-icon-delete" data-filter="[d:tipode_inmueble_ofrecido = 'LOTE']"  onclick="mostrarProyectoViviendaTipo(this);return false;">LOTE</a>
 

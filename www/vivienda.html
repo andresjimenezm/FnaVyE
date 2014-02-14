@@ -20,7 +20,7 @@
 
 
 <!--
-var ds1 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaviviendafinal?$format=xml", "feed/entry/content/m:properties/d:ciudad", {sortOnLoad: "d:ciudad", sortOrderOnLoad: "ascending", distinctOnLoad: true});
+var ds1 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaviviendafinal?$format=xml", "feed/entry/content/m:properties", {sortOnLoad: "d:ciudad", distinctFieldsOnLoad: "d:ciudad", sortOrderOnLoad: "ascending", distinctOnLoad: true});
 
 //-->
 <!--http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaviviendafinal?$format=xml o js/bdfnaviviendafinal.xml-->
@@ -71,7 +71,8 @@ $(document).ready(function() {
              <div spry:state="ready"> 
              <h3 class="fuente1">Seleccionar Ciudad</h3>      
         
-        <a href="#" spry:repeat="ds1" style="text-transform:uppercase" class="ui-btn ui-icon-carat-r ui-btn-icon-right" data-transition="fade" data-filter="{ds1::d:ciudad}"  onclick="mostrarCiudadesVivienda(this);return false;">{ds1::d:ciudad}</a>
+ 
+        <a href="#" spry:repeat="ds1" class="ui-btn ui-icon-carat-r ui-btn-icon-right" style="white-space: normal" data-transition="fade" data-filter="{ds1::d:ciudad}"  onclick="mostrarCiudadesVivienda(this);return false;">{ds1::d:ciudad} - {ds1::d:departamento}</a>
              </div>
 	  </div>
                		

@@ -22,7 +22,10 @@
 
 var idUniU = localStorage.getItem("project_idUniU");
 
-var ds1 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml", "feed/entry/content/m:properties"+idUniU+"", {sortOnLoad: "d:ciudadomunicipio", sortOrderOnLoad: "ascending", distinctOnLoad: true, distinctFieldsOnLoad: ['d:ciudadomunicipio']});
+
+
+var ds1 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml", "feed/entry/content/m:properties"+idUniU+"", {sortOnLoad: "d:ciudadmunicipio", distinctFieldsOnLoad: "d:ciudadmunicipio", sortOrderOnLoad: "ascending", distinctOnLoad: true});
+
 
 <!--http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml o js/bdfnaeducacion.xml-->
 

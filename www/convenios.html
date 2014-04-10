@@ -114,13 +114,15 @@ $(document).ready(function() {
     <div spry:region="ds1"> 
                 <div spry:state="loading" align="center"> </div>
                 <div spry:state="error" align="center"> </div>
+                <td width="30%"><img src="{d:logo}" width="120" height="120" /></td>
                 <div spry:state="ready">
                         <div spry:repeat="ds1">     
                          <a href="#" data-filter="[d:universidad = '{d:universidad}']"  onclick="mostrarUniversidadUnica(this);return false;">
                          <table class="full-width text-center selecciongris" width="100%">
                            <tbody>
                                 <tr>
-                                <td width="30%"><img src="img/cautiva.png" width="120" height="120" /></td>                                <td width="70%"><h4 class="fuente1">{d:universidad}</h4> </td>
+                                
+								<td width="70%"><h4 class="fuente1">{d:universidad}</h4> </td>
                                 </tr>
                             </tbody>
                         </table></a></div>

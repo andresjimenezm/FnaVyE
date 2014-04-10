@@ -67,7 +67,7 @@ $(document).ready(function() {
             
         <a href="#" data-filter="" class="ui-btn ui-icon-carat-r ui-btn-icon-right" data-transition="fade" onclick="mostrarCiudadesE(this);return false;">TODAS</a>
         
-        <a href="#" spry:repeat="ds1" class="ui-btn ui-icon-carat-r ui-btn-icon-right" data-rel="external" data-filter="[d:ciudadmunicipio = '{d:ciudadmunicipio}']"  onclick="mostrarCiudadesE(this);return false;">{ds1::d:ciudadmunicipio}</a>
+        <a href="convenios.html" spry:repeat="ds1" class="ui-btn ui-icon-carat-r ui-btn-icon-right" data-ajax="false">{ds1::d:ciudadmunicipio}</a>
 		</div>
 		
         

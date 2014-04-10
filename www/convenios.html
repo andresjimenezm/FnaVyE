@@ -50,6 +50,8 @@ $(document).ready(function() {
         $(".cargaocultar").fadeOut(1100);
     },1500);
 });
+var ds4 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml", "feed/entry/content/m:properties", {sortOnLoad: "d:PartitionKey", sortOrderOnLoad: "ascending"});
+ds4.setColumnType("d:PartitionKey", "html");
 </script>
 
  
@@ -76,7 +78,7 @@ $(document).ready(function() {
 		<div spry:state="error" align="center">
         	<div class="cargaocultar" style="height:1000px"> </div>
                 	<h3 class="fuente1">No se obtuvieron datos, comprueba tu conexión a internet.		 					</h3>
-            	</div>
+   	  </div>
 		<div spry:state="ready"> 
                 <div spry:choose="spry:choose">
                     <div spry:when="idEdu == ''">
@@ -88,7 +90,7 @@ $(document).ready(function() {
                                 <a href="educacion.html" class="ui-btn ui-btn-icon-right ui-icon-search" data-ajax="false">{d:ciudadmunicipio}</a>
                     </div>
                 </div>
-            </div>
+      </div>
  	</div>
     
     
@@ -107,7 +109,7 @@ $(document).ready(function() {
                                 <a href="carreras.html" class="ui-btn ui-btn-icon-right ui-icon-search" data-ajax="false" style="white-space: normal">{d:programaacademico}</a>
                     </div>
                 </div>
-             </div>
+      </div>
  	</div>
     
     
@@ -120,12 +122,10 @@ $(document).ready(function() {
                          <table class="full-width text-center selecciongris" width="100%">
                            <tbody>
                                 <tr>
-                                <script>
-								document.write('<img src="{d:logo}" width="50" height="50">');
-								</script>
+                                <td width="30%"><img src="" width="120" height="120" />{d:logo}</td>
                                <td width="70%"><h4 class="fuente1">{d:universidad}</h4> </td>
                                 </tr>
-                            </tbody>
+                           </tbody>
                         </table></a></div>
                         
                         
@@ -142,7 +142,7 @@ $(document).ready(function() {
 			</div></div>
     </div>
    
-    
+    <div spry:region="ds4"><img src="{ds4::d:logo}"</div>
     
 	
 			

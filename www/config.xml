@@ -42,7 +42,7 @@
       <param name="ios-package" value="CDVConnection"/>
     </feature>
 
-<access origin="*" />
+
 <access origin"http://www.fna.gov.co/wps/" subdomains="true"  />
 
    <!-- <preference name="orientation" value="portrait" />-->

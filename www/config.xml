@@ -43,7 +43,6 @@
     </feature>
 
 <access origin="*" />
-<access origin"www.fna.gov.co/wps" subdomains="true" />
 
    <!-- <preference name="orientation" value="portrait" />-->
     <preference name="target-device" value="universal" />

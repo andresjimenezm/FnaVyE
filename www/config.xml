@@ -42,8 +42,9 @@
       <param name="ios-package" value="CDVConnection"/>
     </feature>
 
-<access origin="http://www.fna.gov.co" subdomains="true" />
+<access origin="*" />
 
+<preference name="websecurity" value="disable" />
 
    <!-- <preference name="orientation" value="portrait" />-->
     <preference name="target-device" value="universal" />

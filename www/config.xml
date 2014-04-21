@@ -21,8 +21,6 @@
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
     <feature name="http://api.phonegap.com/1.0/notification"/>
     <feature name="http://api.phonegap.com/1.0/network"/>
-	<feature name="http://api.phonegap.com/1.0/file"/>
-	<feature name="http://api.phonegap.com/1.0/media"/>
 
 
     <feature name="Geolocation">
@@ -44,7 +42,8 @@
       <param name="ios-package" value="CDVConnection"/>
     </feature>
 
-<access origin="*" />
+<access origin="*" subdomains="true"/>
+
 
    <!-- <preference name="orientation" value="portrait" />-->
     <preference name="target-device" value="universal" />

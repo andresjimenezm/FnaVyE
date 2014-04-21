@@ -16,41 +16,7 @@
         <script language="JavaScript" type="text/javascript" src="js/xpath.js"></script>
 		<script language="JavaScript" type="text/javascript" src="js/SpryData.js"></script>
         <script language="javascript" type="text/javascript" src="js/funciones.js"></script>
-         <script language="JavaScript" type="text/javascript">
-
-
-<!--
-
-		var idEdu = localStorage.getItem("project_idEdu");
-		<!--alert(idEdu);-->
-		var idEduC = localStorage.getItem("project_idEduC");
-		<!--alert(idEduC);-->
-
-
-if(idEdu == null) {
-          var idEdu = ""
-        }
-if(idEduC == null) {
-          var idEduC = ""
-        }
-
-<!--
-var ds1 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml", "feed/entry/content/m:properties"+idEdu+""+idEduC+"", {sortOnLoad: "d:universidad", sortOrderOnLoad: "ascending", distinctOnLoad: true, distinctFieldsOnLoad: ['d:universidad']});
-//-->
-<!--http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml o js/bdfnaeducacion.xml-->
-var ds2 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml", "feed/entry/content/m:properties"+idEduC+"");
-
-var ds3 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml", "feed/entry/content/m:properties"+idEdu+"");
-</script>
-         <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,100,200,700,500' rel='stylesheet' type='text/css'>
          
-<script type="text/javascript">
-$(document).ready(function() {
-    setTimeout(function() {
-        $(".cargaocultar").fadeOut(1100);
-    },1500);
-});
-</script>
 
  
 	</head>
@@ -187,6 +153,42 @@ $(document).ready(function() {
         </p>
     </div><!-- /panel -->
 </div>
+
+<script language="JavaScript" type="text/javascript">
+
+
+<!--
+
+		var idEdu = localStorage.getItem("project_idEdu");
+		<!--alert(idEdu);-->
+		var idEduC = localStorage.getItem("project_idEduC");
+		<!--alert(idEduC);-->
+
+
+if(idEdu == null) {
+          var idEdu = ""
+        }
+if(idEduC == null) {
+          var idEduC = ""
+        }
+
+<!--
+var ds1 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml", "feed/entry/content/m:properties"+idEdu+""+idEduC+"", {sortOnLoad: "d:universidad", sortOrderOnLoad: "ascending", distinctOnLoad: true, distinctFieldsOnLoad: ['d:universidad']});
+//-->
+<!--http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml o js/bdfnaeducacion.xml-->
+var ds2 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml", "feed/entry/content/m:properties"+idEduC+"");
+
+var ds3 = new Spry.Data.XMLDataSet("http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/bdfnaeducacion?$format=xml", "feed/entry/content/m:properties"+idEdu+"");
+</script>
+         <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,100,200,700,500' rel='stylesheet' type='text/css'>
+         
+<script type="text/javascript">
+$(document).ready(function() {
+    setTimeout(function() {
+        $(".cargaocultar").fadeOut(1100);
+    },1500);
+});
+</script>
 
 </body>
 </html>

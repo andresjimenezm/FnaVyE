@@ -41,10 +41,12 @@
       <param name="android-package" value="org.apache.cordova.NetworkManager"/>
       <param name="ios-package" value="CDVConnection"/>
     </feature>
+	
+	<feature name="InAppBrowser">
+    <param name="android-package" value="org.apache.cordova.InAppBrowser" />
+</feature>
 
 <access origin="*" />
-
-<preference name="websecurity" value="disable" />
 
    <!-- <preference name="orientation" value="portrait" />-->
     <preference name="target-device" value="universal" />
